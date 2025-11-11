@@ -27,3 +27,21 @@ dependencies = [
 [project.urls]
 Homepage = "https://gitlab.com/jonatanjrss/dokku-wrapper"
 Issues = "https://gitlab.com/jonatanjrss/dokku-wrapper/issues"
+
+[tool.bumpver]
+current_version = "0.1.1"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "Bump version: {old_version} → {new_version}"
+commit = true          # ✅ necessário se push = true
+push = true            # faz push automático da tag e do commit
+tag_message = "v{new_version}"
+tag_name = "v{new_version}"
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    '^version = "{version}"',            # só o version do [project]
+    '^current_version = "{version}"',    # só o current_version do bumpver
+]
+
+[tool.taskipy.tasks]
+publish = {cmd="bumpver update --patch", help="Publica no Pypi"}
