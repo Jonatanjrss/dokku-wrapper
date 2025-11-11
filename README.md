@@ -15,5 +15,6 @@ pip install dokku-wrapper
 from dokku_wrapper.dokku import Dokku
 
 dokku = Dokku() 
-dokku.apps.create("meu-app")
+dokku.apps.create("meu-app")  # cria uma nova aplicação
+dokku.apps.list()  # lista as aplicações existentes
 ```
