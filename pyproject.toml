@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dokku-wrapper"
-version = "0.1.2"
+version = "0.1.1"
 description = "Um wrapper em Python para gerenciar aplicações Dokku"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -25,11 +25,11 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://gitlab.com/jonatanjrss/dokku-wrapper"
-Issues = "https://gitlab.com/jonatanjrss/dokku-wrapper/issues"
+Homepage = "https://github.com/Jonatanjrss/dokku-wrapper"
+Issues = "https://github.com/Jonatanjrss/dokku-wrapper/issues"
 
 [tool.bumpver]
-current_version = "0.1.2"
+current_version = "0.1.1"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "Bump version: {old_version} → {new_version}"
 commit = true          # ✅ necessário se push = true
