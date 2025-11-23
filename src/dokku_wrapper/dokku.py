@@ -1,4 +1,6 @@
 from .services.apps import Apps
+from .services.domains import Domains
+from .services.config import Config
 
 
 class Dokku:
@@ -6,3 +8,5 @@ class Dokku:
 
     def __init__(self):
         self.apps = Apps()
+        self.domains = Domains()
+        self.config = Config()

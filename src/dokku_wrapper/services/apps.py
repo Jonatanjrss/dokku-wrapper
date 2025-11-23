@@ -17,19 +17,23 @@ class Apps:
             raise
 
     @staticmethod
-    def destroy(name: str, force: bool = True) -> str:
+    def destroy(name: str, force: bool = True) -> bool:
         cmd = ["dokku", "apps:destroy", name]
         if force:
             cmd.append("--force")
         try:
-            return run_command(cmd)
+            if "Destroying myapp" in run_command(cmd):
+                return True
         except DokkuCommandError as e:
             if "is not deployed" in e.message or "does not exist" in e.message:
                 raise AppNotFound(name)
             raise
+        return False
 
     @staticmethod
     def list() -> List[str]:
         """Retorna uma lista de apps Dokku existentes."""
         output = run_command(["dokku", "apps:list"])
-        return [line.strip() for line in output.splitlines() if line.strip()]
+        apps = [line.strip() for line in output.splitlines() if line.strip()]
+        apps.remove('=====> My Apps')
+        return apps
